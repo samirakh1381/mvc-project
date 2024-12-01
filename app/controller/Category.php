@@ -2,11 +2,12 @@
 
 namespace App\controller;
 
-class  Category{
+class  Category extends Controller{
+
     public function cat(){
-        echo "cat method";
+        $this->view("panel");
     }
+
     public function edit(){
-        echo "edit method";
-    }
+        $this->view("category.edit");    }
 }
