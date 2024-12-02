@@ -1,4 +1,5 @@
 <?php
+
 include "app/view/partials/header.php";
 ?>
 <body>
