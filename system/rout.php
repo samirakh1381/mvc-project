@@ -15,13 +15,13 @@ class Routing{
            echo "file not exist-404";
            exit;
        }
-         sizeof($this->rout) ==1 ? $method="cat" : $method=$this->rout[1];
-       $class="App\controller\\".$this->rout[0];
+         sizeof($this->rout) == 1 ? $method= "cat" : $method=$this->rout[1];
+       $class="App\controller\\". $this->rout[0];
        $object = new $class;
         if (method_exists($object,$method)){
-            $object->{$method}();
+            $object-> {$method}();
         }else{
-            echo "404 metod not exist";
+            echo "404 method not exist";
         }
     }
 }
