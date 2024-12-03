@@ -1,30 +1,46 @@
 <?php
 
 namespace App\controller;
+
 use App\Model\Create;
 use App\Model\Insert;
 use App\Model\Read;
-class  Category extends Controller {
+use App\Model\Delete;
 
-    public function cat(){
+class  Category extends Controller
+{
 
-        $readData= new Read();
-        $results= $readData->read();
-       $this->view("category.category" , compact("results"));
+    public function cat()
+    {
+
+        $readData = new Read();
+        $results = $readData->read();
+        $this->view("category.category", compact("results"));
+        $deleteDate= new Delete();
+        if (isset($_GET['id'])){
+          $id=$_GET['id'];
+          $deleteDate->delete($id);
+          $this->redirect("category");
+        }
+
+
     }
 
-    public function edit(){
-        $this->view("category.edit");    }
+    public function edit()
+    {
+        $this->view("category.edit");
+    }
 
-    public function creator(){
+    public function creator()
+    {
         //create table category
-        $obj=new Create;
+        $obj = new Create;
         $obj->createTable();
         $this->view("category.creator");
         if (isset($_POST["submit"])) {
-           $insertData= new Insert;
-           $insertData->insert();
-          $this->redirect("category");
+            $insertData = new Insert;
+            $insertData->insert();
+            $this->redirect("category");
         }
     }
 }

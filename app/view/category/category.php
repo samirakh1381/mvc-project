@@ -26,13 +26,16 @@ include "app/view/partials/header.php";
         </thead>
         <tbody>
         <?php
+
                 foreach ($results as $result):?>
 
         <tr>
             <th scope="row">
                 <div class="actions">
-                    <a href="" class="bg-danger  text-light p-2 m-2" >حذف</a>
-                    <a href="" class="bg-success  text-light p-2 m-2" >ویرایش</a>
+                    <a href="<?php  echo "http://" .$_SERVER["HTTP_HOST"] . "/mvc%20project/category?id=".$result['0'];
+
+                    ?>" class="bg-danger  text-light p-2 m-2" >حذف</a>
+
                 </div>
             </th>
             <td><?php echo $result[2] ; ?></td>
