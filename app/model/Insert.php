@@ -10,5 +10,6 @@ class Insert extends Model {
         $sql=" INSERT INTO category (Title,Description,CatID) VALUES ('$title','$description','$catID')";
         $this->Query($sql);
 
+
     }
 }

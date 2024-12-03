@@ -3,11 +3,14 @@
 namespace App\controller;
 use App\Model\Create;
 use App\Model\Insert;
-
+use App\Model\Read;
 class  Category extends Controller {
 
     public function cat(){
-       $this->view("category.category");
+
+        $readData= new Read();
+        $results= $readData->read();
+       $this->view("category.category" , compact("results"));
     }
 
     public function edit(){
