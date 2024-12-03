@@ -1,6 +1,8 @@
 <?php
 
 namespace App\controller;
+use App\Model\Create;
+use App\Model\Insert;
 
 class  Category extends Controller {
 
@@ -12,9 +14,14 @@ class  Category extends Controller {
         $this->view("category.edit");    }
 
     public function creator(){
+        //create table category
+        $obj=new Create;
+        $obj->createTable();
         $this->view("category.creator");
         if (isset($_POST["submit"])) {
-                    $this->redirect("category");
+           $insertData= new Insert;
+           $insertData->insert();
+          $this->redirect("category");
         }
     }
 }
